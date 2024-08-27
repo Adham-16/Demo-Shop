@@ -11,8 +11,8 @@ export  function Register() {
     const initialValues={
         "name": "",
         "email":"",
-        "password":"asd1234@",
-        "rePassword":"asd1234@",
+        "password":"",
+        "rePassword":"",
         "phone":""
         }
 

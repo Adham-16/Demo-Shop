@@ -12,7 +12,7 @@ export  function Login() {
 
     const initialValues={
         "email":"",
-        "password":"asd1234@"
+        "password":""
         }
 
     const validationSchema = Yup.object({
