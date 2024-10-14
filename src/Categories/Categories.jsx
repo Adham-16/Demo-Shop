@@ -1,26 +1,28 @@
 import axios from "axios"
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { LoadingScreen } from "../LoadingScreen/LoadingScreen";
+import { NotFound } from "../notfound/notfound";
+import { useQuery } from "@tanstack/react-query";
 
 
 export function Categories() {
-  const [categories, setCategories] = useState([]);
-  const [IsLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    getCategories()
-  }, []);
   async function getCategories() {
-    setIsLoading(true)
     let {data} = await axios.get('https://ecommerce.routemisr.com/api/v1/categories')
-      setCategories(data.data)
-    setIsLoading(false)
-    
+      return data.data;
   }
+
+  const { data: categories, isLoading, error } = useQuery({
+    queryKey: ['categories'],
+    queryFn: getCategories
+  });
+
+
+    if (isLoading) return <LoadingScreen />;
+    if (error) return <NotFound/>;
   return (
     <>
-    {IsLoading ? <LoadingScreen /> :
+
     <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 " >
         {categories?.map((category,index) =>{
             return <div key={index}>
@@ -37,7 +39,7 @@ export function Categories() {
             </div>
         })}
     </div>
-    }
+
     </>
   )
 }
