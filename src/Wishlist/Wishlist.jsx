@@ -72,7 +72,7 @@ async function deleteProductFromWishlist(wishlistId) {
                         </div>
                         <div className="flex items-center justify-between">
                             <span className="text-xl font-bold text-[#C9CACB] dark:text-white">${wishlist.price}</span>
-                            <a onClick={()=> addProductToCart(wishlist._id)} href="#" className="text-white bg-[#4E12A0] hover:bg-[#8851d6] duration-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to Cart</a>
+                            <a onClick={()=> addProductToCart(wishlist._id)} className="text-white bg-[#4E12A0] hover:bg-[#8851d6] duration-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to Cart</a>
                         </div>
                     </div>
                 </div>

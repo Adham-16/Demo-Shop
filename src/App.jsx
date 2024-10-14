@@ -17,6 +17,7 @@ import { ToastContainer } from 'react-toastify';
 import { ShippingAddress } from './ShippingAddress/ShippingAddress';
 import AllOrders from './AllOrders/AllOrders';
 import { SpecificCategory } from './SpecificCategory/SpecificCategory';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 
 
@@ -38,13 +39,20 @@ function App() {
     ]}
       
     ])
+
+
+    const queryClient = new QueryClient()
+
   return (
   
     <>
-    <AuthContextProvider>
-      <RouterProvider router={Router} />
-      <ToastContainer />
-    </AuthContextProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthContextProvider>
+        <RouterProvider router={Router} />
+        <ToastContainer />
+      </AuthContextProvider>
+    </QueryClientProvider>
+    
     </>
   )
 }
