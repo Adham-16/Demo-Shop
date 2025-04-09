@@ -100,6 +100,7 @@ export function ProductDetails() {
             <RelatedProducts Products={relatedProduct} />
           </>
       }
+
     </>
   )
 }
